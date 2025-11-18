@@ -26,12 +26,12 @@ int main(int argc, char** argv) {
         glutInitWindowPosition(0, 0);
         glutCreateWindow("HW_02");
 
-        glutDisplayFunc(display);   // 渲染畫面
-        glutIdleFunc(idle);         // idle
+        glutDisplayFunc(display);   
+        glutIdleFunc(idle);         
 
-        glutMouseFunc(mouse);       // 滑鼠
-        glutKeyboardFunc(keyboard); // 鍵盤
-        glutReshapeFunc(reshape);   // 改變大小
+        glutMouseFunc(mouse);       
+        glutKeyboardFunc(keyboard); 
+        glutReshapeFunc(reshape);   
 
         init();
         glutMainLoop();
@@ -91,7 +91,7 @@ void myTranslation(int id) {
     glutIdleFunc(idle);
 }
 
-void init() {   //初始
+void init() {  
 
     int sub_Rotation = glutCreateMenu(myRotation);
     glutAddMenuEntry("start", 0);
@@ -135,22 +135,18 @@ void reshape(int x, int y) {
 }
 
 void display() {
-    glClear(GL_COLOR_BUFFER_BIT);   // 清空 back
-    // 畫紅色的座標軸
-    glColor3f(1.0, 0.0, 0.0); // 設定紅色
+    glClear(GL_COLOR_BUFFER_BIT);   //  back
+    glColor3f(1.0, 0.0, 0.0); 
     glBegin(GL_LINES);
-    // X 軸
     glVertex2f(-1.0, 0.0);
     glVertex2f(1.0, 0.0);
-    // Y 軸
     glVertex2f(0.0, -1.0);
     glVertex2f(0.0, 1.0);
     glEnd();
 
+    glColor3f(0.0, 0.0, 1.0); 
 
-    glColor3f(0.0, 0.0, 1.0); // 設定藍色
-
-    int num_segments = 200; // 控制圓滑程度
+    int num_segments = 200; 
 
     float thetar = theta * PI / (180);
 
@@ -160,7 +156,6 @@ void display() {
         float x = 0.2 * cos(angle);
         float y = 0.4 * sin(angle);
 
-        // 旋轉橢圓
         float px, py;
         px = x * cos(thetar) + y * sin(thetar) + xx;
         py = -x * sin(thetar) + y * cos(thetar) + yy;
